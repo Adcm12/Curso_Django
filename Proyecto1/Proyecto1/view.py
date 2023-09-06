@@ -1,15 +1,18 @@
 from django.http import HttpResponse
-import datetime
+from datetime import datetime
 from django.template import Template, Context
 
 def saludo(request):
     nombre = 'Adrian'
     apellido = 'Castillo'
+    fecha = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+
+    lista = ['Diccionarios', 'Modulos', 'Metodos', 'Atributos', 'Plantillas']        
 
     doc_externo = open('C:/Users/Adrian12/Desktop/Curso_Django/Proyecto1/Proyecto1/plantillas/plantilla1.html')
     plt = Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context({'nombre_p': nombre, 'apellido_p': apellido})
+    ctx = Context({'nombre_p': nombre, 'apellido_p': apellido, 'hora_fecha':fecha, 'items':lista})
     documento= plt.render(ctx)
 
     return HttpResponse(documento)

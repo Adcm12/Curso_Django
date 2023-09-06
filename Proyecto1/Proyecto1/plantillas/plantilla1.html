@@ -3,9 +3,34 @@
     <h1 style="color: blue; background-color: aqua;"> 
     Bienvenidos al Himalaya
     </h1>
+
     <p1>
         El estudiante {{nombre_p}} {{apellido_p}} estudia python
-    </p1>
+    </p1><br>
+
+    <p2 style="color: darkblue;">       
+        La hora y fecha en que se ejecuta el programa es: {{hora_fecha}}
+    </p2><br>
+
+    <p3><strong>
+        Temas del curso:
+    </p3><br>
+
+    <p3><ul>
+        {% if items %}
+
+            {% for temas in items %}
+
+            <li>{{temas.upper}}</li>
+
+            {% endfor %}
+        {% else %}
+            No hay ningun tema disponible
+
+        {% endif%}
+
+    </ul></p3>
+
     </body>
     </html>
 
